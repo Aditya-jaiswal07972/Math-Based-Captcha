@@ -1,46 +1,104 @@
-# Math Captcha Generator
+# 🧮 Math-Based CAPTCHA
 
-## Introduction
+A simple but powerful **math-based CAPTCHA system** built with **Python, Flask, and Pillow**.  
+It helps prevent bots by asking users to solve a basic math problem before verification.  
 
-This Python script generates a simple math captcha and prompts the user to solve it. It randomly generates two numbers and an arithmetic operator (+, -, *) to form an equation. The user needs to input the result of the equation to pass the captcha.
-
-## How It Works
-
-1. **Captcha Generation**:
-   - Randomly selects two numbers between 0 and 10 and an arithmetic operator.
-   - Forms an equation in the format: "num1 operator num2 = ?"
-   - Evaluates the equation to calculate the result.
-
-2. **Display Captcha**:
-   - Uses the `ImageCaptcha` library to generate an image containing the captcha equation.
-   - Displays the captcha image to the user.
-
-3. **User Input**:
-   - Prompts the user to input the result of the math equation.
-   - Compares the user's input with the calculated result.
-   - Prints a success message if the input matches the result, otherwise prompts the user to try again.
-
-## Requirements
-
-- Python 3.x
-- `captcha` library (install via `pip install captcha`)
-
-## How to Run
-
-1. Ensure Python and the required libraries are installed.
-2. Run the script using the command:
-   ```
-   python math_captcha_generator.py
-   ```
-
-## Example
-
-Upon running the script, a math captcha image will be displayed, and the user will be prompted to enter the result of the equation. If the input matches the calculated result, a success message will be printed; otherwise, the user will be asked to try again.
-
-## License
-
-This project is licensed under the MIT License.
+👉 **Live Demo:** [Math CAPTCHA on PythonAnywhere](https://adityauser1.pythonanywhere.com/)
 
 ---
 
-Feel free to contribute to this project by forking the repository and submitting pull requests. Your contributions are always welcome!
+## ✨ Features
+- 🔢 Random math problems using `+`, `-`, and `*`  
+- 🖼️ Captcha images dynamically generated with **Pillow** (`captcha.ttf` font)  
+- ⚡ Clean & responsive **Flask web UI** with inline HTML/CSS  
+- ✅ Session-based verification with **10-minute expiry**  
+- 🔁 Redirects verified users to another page (currently [The India Ledger](https://theindialedger.web.app/))  
+- 🖥️ Works both as:
+  - Standalone script (generates PNG locally)  
+  - Flask web app (interactive UI + validation)  
+
+---
+
+## 🛠️ Tech Stack
+- **Python 3.x**  
+- **Flask** – Web framework  
+- **Pillow (PIL)** – Image generation  
+- **HTML + CSS** – Styled interface  
+- **Docker** (optional, for containerized deployment)  
+
+---
+
+## 📸 Screenshots
+
+**Script Version (Generated PNG):**
+
+![Captcha Example](out.png)
+
+**Web App (Flask UI):**
+
+<img src="web.png" alt="Captcha Example" width="400" height="300"/>
+
+---
+## 🚀 Getting Started
+
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/Aditya-jaiswal07972/Math-Based-Captcha.git
+cd Math-Based-Captcha
+````
+
+### 2️⃣ Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### ▶️ Run as a simple script
+
+Generates a static `out.png` captcha image.
+
+```bash
+python python-captha.py
+```
+
+---
+
+### 🌐 Run as a Flask web app
+
+Serves an interactive math CAPTCHA in your browser.
+
+```bash
+pip install flask pillow
+python app.py
+```
+
+Then visit: 👉 `http://127.0.0.1:5000/`
+
+---
+
+### 🐳 Run with Docker (optional)
+
+```bash
+docker build -t math-captcha .
+docker run -p 5000:5000 math-captcha
+```
+
+---
+
+
+## ⚙️ Configuration
+
+* `SECRET_KEY` → should be set as an environment variable in production
+* `EXPIRY_SECONDS` → default 600 (10 minutes), controls verification validity
+* `captcha.ttf` → custom font for rendering; falls back to default if missing
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+© 2025 Aadi (Aditya Jaiswal)
+
+---
